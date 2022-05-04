@@ -1,9 +1,9 @@
 import { Form, Button } from 'react-bootstrap';
-import { FormContainer, LinkToRegister, FormName } from './RegisterForm.styled';
-const RegisterForm = ({ forLogin }) => {
+import { FormContainer, LinkToRegister, FormName } from './LoginForm.styled';
+const LoginForm = () => {
   return (
     <FormContainer fluid="sm">
-      <FormName>Register</FormName>
+      <FormName>Login</FormName>
       <Form
         onSubmit={e => {
           e.preventDefault();
@@ -13,11 +13,6 @@ const RegisterForm = ({ forLogin }) => {
           console.log({ email, password });
         }}
       >
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter your name" />
-        </Form.Group>
-
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email </Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
@@ -34,12 +29,12 @@ const RegisterForm = ({ forLogin }) => {
         <Button variant="dark" type="submit">
           Submit
         </Button>
-        <LinkToRegister to="/login">
-          Already registered, then go to the login page!
+        <LinkToRegister to="/register">
+          Not registered yet, then register now!
         </LinkToRegister>
       </Form>
     </FormContainer>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

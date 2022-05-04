@@ -1,5 +1,5 @@
-import RegisterForm from 'components/RegisterForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 const LoginPage = () => {
-  return <RegisterForm forLogin />;
+  return <LoginForm />;
 };
 export default LoginPage;
