@@ -1,18 +1,20 @@
+import { useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import { FormContainer, LinkToRegister, FormName } from './LoginForm.styled';
+import { logIn } from 'redux/auth-operations';
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target.elements;
+    const email = form.email.value;
+    const password = form.password.value;
+    dispatch(logIn({ email, password }));
+  };
   return (
     <FormContainer fluid="sm">
       <FormName>Login</FormName>
-      <Form
-        onSubmit={e => {
-          e.preventDefault();
-          const form = e.target.elements;
-          const email = form.email.value;
-          const password = form.password.value;
-          console.log({ email, password });
-        }}
-      >
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email </Form.Label>
           <Form.Control type="email" placeholder="Enter email" />

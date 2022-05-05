@@ -3,6 +3,7 @@ import { contactsApi } from './contactsApi';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { combineReducers } from '@reduxjs/toolkit';
 import { filterReduser } from './filterSlice';
+import { authReduser } from './authSlice';
 // import {
 //   persistStore,
 //   FLUSH,
@@ -20,6 +21,7 @@ import { filterReduser } from './filterSlice';
 const rootReducer = combineReducers({
   [contactsApi.reducerPath]: contactsApi.reducer,
   filter: filterReduser,
+  auth: authReduser,
 });
 
 export const store = configureStore({
