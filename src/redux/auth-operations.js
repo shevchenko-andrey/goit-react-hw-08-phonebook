@@ -14,16 +14,16 @@ const token = {
 };
 
 export const register = createAsyncThunk('auth/register', async credentials => {
-  console.log(credentials);
   try {
     const { data } = await axios.post('/users/signup', credentials);
     token.set(data.token);
+    console.log(data);
     return data;
   } catch {
     toast.error('Sorry, registration failed');
   }
 });
-export const logIn = createAsyncThunk('auth/register', async credentials => {
+export const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
@@ -33,48 +33,28 @@ export const logIn = createAsyncThunk('auth/register', async credentials => {
   }
 });
 
-export const logOut = createAsyncThunk('auth/register', async credentials => {
+export const logOut = createAsyncThunk('auth/logout', async () => {
   try {
-    await axios.post('/users/logout', credentials);
+    await axios.post('/users/logout');
     token.unset();
   } catch {
-    toast.error('Sorry, logOut failed');
+    toast.error('Sorry, logout failed');
   }
 });
-export const getCurrent = createAsyncThunk(
-  'auth/register',
-  async credentials => {
-    try {
-      await axios.post('/users/current', credentials);
-    } catch {
-      toast.error('Sorry, user current failed');
+export const getCurrentUser = createAsyncThunk(
+  'auth/fechcurrent',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (!persistedToken) {
+      return thunkAPI.rejectWithValue();
     }
-  }
-);
-export const getAllContacts = createAsyncThunk(
-  'auth/register',
-  async credentials => {
+    token.set(persistedToken);
     try {
-      await axios.get('/contacts', credentials);
+      const { data } = await axios.get('/users/current');
+      return data;
     } catch {
-      toast.error('Sorry, get all failed');
-    }
-  }
-);
-export const deleteContacts = createAsyncThunk('auth/register', async id => {
-  try {
-    await axios.delete(`/contacts/${id}`);
-  } catch {
-    toast.error('Sorry, delete failed');
-  }
-});
-export const addContacts = createAsyncThunk(
-  'auth/register',
-  async credentials => {
-    try {
-      await axios.post('/contacts', credentials);
-    } catch {
-      toast.error('Sorry, add contact failed');
+      toast.error('Sorry, user is not finded');
     }
   }
 );

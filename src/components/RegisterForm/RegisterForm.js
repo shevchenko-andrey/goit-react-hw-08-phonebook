@@ -8,11 +8,12 @@ const RegisterForm = () => {
   const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.target.elements;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
+    const form = e.target;
+    const name = form.elements.name.value;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
     dispatch(register({ name, email, password }));
+    form.reset();
   };
 
   return (

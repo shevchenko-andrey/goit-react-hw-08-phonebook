@@ -3,7 +3,7 @@ import { Navbar, Button } from 'react-bootstrap';
 import { getUserName } from 'redux/selectors';
 import { logOut } from 'redux/auth-operations';
 const UserMenu = () => {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const name = useSelector(getUserName);
   const HandleLogOut = () => {
     dispatch(logOut());
