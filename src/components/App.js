@@ -8,6 +8,8 @@ import RegisterPage from '../pages/RegisterPage';
 import LoginPage from '../pages/LoginPage';
 import AppBar from '../components/AppBar';
 import { getCurrentUser } from 'redux/auth-operations';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,9 +20,30 @@ const App = () => {
       <GlobalStyle />
       <AppBar />
       <Routes>
-        <Route path="login" element={<LoginPage />} />
-        <Route path="contacts" element={<ContactsPage />} />
-        <Route path="register" element={<RegisterPage />} />
+        <Route
+          path="login"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        ></Route>
+        <Route
+          path="contacts"
+          element={
+            <PrivateRoute>
+              <ContactsPage />
+            </PrivateRoute>
+          }
+        ></Route>
+        <Route
+          path="register"
+          element={
+            <PublicRoute>
+              <RegisterPage />
+            </PublicRoute>
+          }
+        ></Route>
         <Route path="*" element={<Navigate to="login" />} />
       </Routes>
 

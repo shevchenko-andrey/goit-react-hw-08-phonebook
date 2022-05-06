@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-
+console.log(axios.defaults);
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = token;
@@ -20,7 +20,7 @@ export const register = createAsyncThunk('auth/register', async credentials => {
     console.log(data);
     return data;
   } catch {
-    toast.error('Sorry, registration failed');
+    toast.error('Sorry, registration is failed');
   }
 });
 export const logIn = createAsyncThunk('auth/login', async credentials => {
@@ -29,7 +29,7 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
     token.set(data.token);
     return data;
   } catch {
-    toast.error('Sorry, login failed');
+    toast.error('Sorry, login is failed');
   }
 });
 
@@ -54,7 +54,7 @@ export const getCurrentUser = createAsyncThunk(
       const { data } = await axios.get('/users/current');
       return data;
     } catch {
-      toast.error('Sorry, user is not finded');
+      toast.error('Sorry, user is not found');
     }
   }
 );

@@ -13,8 +13,8 @@ function Contacts() {
       {isFetching && !visibleContacts && <ContactsSkeleton />}
       <ContactList>
         {visibleContacts &&
-          visibleContacts.map(({ id, name, phone }) => (
-            <ContactsItem name={name} key={id} id={id} phone={phone} />
+          visibleContacts.map(({ id, name, number }) => (
+            <ContactsItem name={name} key={id} id={id} phone={number} />
           ))}
       </ContactList>
     </>
