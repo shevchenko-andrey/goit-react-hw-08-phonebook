@@ -8,6 +8,8 @@ export const getUserName = state => state.auth.user.name;
 
 export const getIsFetchingUser = state => state.auth.isFetchingUser;
 
+export const getToken = state => state.auth.token;
+
 export const getvisibleContacts = (state, data) => {
   if (!data) {
     return;
