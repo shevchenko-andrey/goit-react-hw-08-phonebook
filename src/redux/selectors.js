@@ -6,6 +6,8 @@ export const getIsLoggedIn = state => state.auth.isLoggedIn;
 
 export const getUserName = state => state.auth.user.name;
 
+export const getIsFetchingUser = state => state.auth.isFetchingUser;
+
 export const getvisibleContacts = (state, data) => {
   if (!data) {
     return;

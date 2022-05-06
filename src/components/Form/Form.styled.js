@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { Form, Field } from "formik";
+import { Form, Field } from 'formik';
 
 export const FormText = styled.p`
   padding-top: 5px;

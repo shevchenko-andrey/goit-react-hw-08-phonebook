@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-console.log(axios.defaults);
+
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = token;
