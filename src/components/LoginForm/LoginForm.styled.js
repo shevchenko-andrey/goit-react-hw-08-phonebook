@@ -19,3 +19,9 @@ export const LinkToRegister = styled(Link)`
     color: #5456f6;
   }
 `;
+
+export const FormText = styled.p`
+  padding-top: 5px;
+  position: absolute;
+  color: #ff0000;
+`;

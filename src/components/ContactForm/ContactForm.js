@@ -14,7 +14,7 @@ import {
   InputForm,
   FormStyled,
   PhoneWrapper,
-} from './Form.styled';
+} from './ContactForm.styled';
 
 import 'yup-phone';
 

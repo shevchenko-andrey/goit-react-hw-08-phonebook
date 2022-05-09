@@ -1,4 +1,4 @@
-import ContactForm from 'components/Form';
+import ContactForm from 'components/ContactForm';
 import Section from 'components/Section';
 import Contacts from 'components/Contacts';
 import Filter from 'components/Filter';
