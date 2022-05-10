@@ -52,9 +52,15 @@ export const getCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
+
+      if (!data) {
+        return thunkAPI.rejectWithValue();
+      }
       return data;
     } catch {
-      toast.error('Sorry, user is not found');
+      token.unset();
+
+      return thunkAPI.rejectWithValue();
     }
   }
 );
