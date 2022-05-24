@@ -21,6 +21,7 @@ export const Item = styled.li`
 `;
 export const Button = styled.button`
   border-radius: 10px;
+  margin-left: 10px;
   padding: 5px;
   color: #ffffff;
   background-color: #4f8f2a;
