@@ -1,16 +1,13 @@
-import { ContactList } from './contacts.styled';
-import ContactsItem from '../ContactsItem';
+import ContactsItem from 'components/ContactsItem';
 
 const ContactsSkeleton = () => {
   return (
-    <ContactList>
-      <ContactsItem
-        name="############"
-        key="###skelet###"
-        id="###skelet###"
-        phone="############"
-      />
-    </ContactList>
+    <ContactsItem
+      name="##########"
+      key="ContactsItemSkeletonid"
+      id="ContactsItemSkeletonid"
+      phone="##########"
+    />
   );
 };
 export default ContactsSkeleton;

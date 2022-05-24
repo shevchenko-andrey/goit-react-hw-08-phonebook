@@ -5,9 +5,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { GlobalStyle } from '../Base/BaseStyle';
 import { lazy, Suspense } from 'react';
-// import ContactsPage from '../pages/ContactsPage';
-// import RegisterPage from '../pages/RegisterPage';
-// import LoginPage from '../pages/LoginPage';
 import AppBar from '../components/AppBar';
 import { getCurrentUser } from 'redux/auth-operations';
 import PrivateRoute from './PrivateRoute';
