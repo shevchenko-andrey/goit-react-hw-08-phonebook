@@ -5,7 +5,6 @@ export const ContactList = styled.ul`
   padding: 0px;
 `;
 export const ContentsWrapper = styled.div`
-  /* d-flex justify-content-between align-items-start */
   display: flex;
   width: 300px;
   height: 100%;
@@ -24,7 +23,6 @@ export const Button = styled.button`
 `;
 export const ContactWrapper = styled.div`
   display: flex;
-
   width: 100%;
 `;
 export const Name = styled.span`

@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { ContactList } from './contacts.styled';
-import { ListGroup } from 'react-bootstrap';
 import { useGetContactsQuery } from 'redux/contactsApi';
 import ContactsItem from '../ContactsItem';
 import { getvisibleContacts } from 'redux/selectors';
@@ -18,7 +17,7 @@ function Contacts() {
 
   return (
     <>
-      <ListGroup as={ContactList} variant="flush">
+      <ContactList>
         {isFetching && !visibleContacts && <ContactsSkeleton />}
         {isSuccess &&
           visibleContacts.length > 0 &&
@@ -28,7 +27,7 @@ function Contacts() {
         {isSuccess && visibleContacts.length < 1 && (
           <p>You don't have any contacts yet</p>
         )}
-      </ListGroup>
+      </ContactList>
     </>
   );
 }

@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FilterContact = styled.label`
   display: flex;
   flex-direction: column;
-  width: 300px;
+
   margin-bottom: 40px;
 `;
 export const FilterDescription = styled.span`
@@ -15,5 +15,10 @@ export const Input = styled.input`
   display: block;
   border: 2px solid #b1aeac;
   padding: 5px;
-  width: 300px;
+  @media screen and (max-width: 768px) {
+    max-width: 300px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 450px;
+  }
 `;

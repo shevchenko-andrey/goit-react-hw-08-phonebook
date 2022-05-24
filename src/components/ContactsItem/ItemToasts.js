@@ -9,7 +9,7 @@ export const showDeletingToast = response => {
       error: 'Opps, something wrong, try again',
     },
     {
-      position: 'top-right',
+      position: 'botton-center',
 
       style: {
         marginTop: '10px',
